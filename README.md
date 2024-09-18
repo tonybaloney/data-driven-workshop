@@ -230,6 +230,14 @@ search_query = completion.choices[0].message.content
 
 See [Enroll in the Vector Search Preview Feature](https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/vector-search#enroll-in-the-vector-search-preview-feature) for details on how to enable the Vector Search feature in Cosmos DB.
 
+To use this sample with Cosmos DB, you need to provide some additional environment variables:
+
+- `AZURE_COSMOS_URL` - The Cosmos DB endpoint
+- `AZURE_COSMOS_KEY` - The Cosmos DB key (if not included, will attempt to use Managed Identity)
+- `AZURE_COSMOS_CONNECTION_STRING` - The Cosmos connection string
+
+Once you have configured these values, you can transfer the test data in `src/api/data/test.json` to Cosmos DB using the `/api/seed_test_data` endpoint.
+
 ## Azure Computer Vision Support
 
 This sample comes with optional support for the [Florence Model in Azure Computer Vision](https://azure.microsoft.com/en-us/blog/announcing-a-renaissance-in-computer-vision-ai-with-microsofts-florence-foundation-model/?msockid=12cb358a5eb267762fff21695f5066a3). The Florence model is an embedding model specifically for images.

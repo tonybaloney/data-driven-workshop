@@ -14,15 +14,23 @@ In the Visual Studio Code extensions view search for "Dev Containers" in search 
 ## Running the App within the DevContainer
 1. Clone the project
 ```dotnetcli
-git clone https://github.com/tonybaloney/data-driven-workshop.git
+git clone https://github.com/raorugan/data-driven-AI-workshop.git
 
 ```
 2. Start the Dev container
-    a. Open a New Window in Visual Studio Code
-    b. Open the folder data-driven-workshop . Visual Studio Code will then build the Docker image specified in your .devcontainer/Dockerfile and start a container with the configuration specified in your .devcontainer/devcontainer.json file. Once the container is running, your project will be opened inside the container, and you can start working with it as if it were running locally.
+    a. Make sure Docker Desktop is running in your local machine
+    b. Open a New Window in Visual Studio Code
+    c. Open the folder data-driven-AI-workshop . Visual Studio Code will then build the Docker image specified in your .devcontainer/Dockerfile and start a container with the configuration specified in your .devcontainer/devcontainer.json file. Once the container is running, your project will be opened inside the container, and you can start working with it as if it were running locally.
+
+   Look out for the VScode notification at the right bottom corner to start the Dev Container
+
+   ![image](https://github.com/user-attachments/assets/e00bf171-b085-4578-a258-710914146e22)
+
+
+   
     
   ```dotnetcli
-  cd /workspaces/data-driven-workshop
+  cd /workspaces/data-driven-AI-workshop
   ```
 3. Create Python virtual Environment
 ```dotnetcli
@@ -36,19 +44,23 @@ pip install -r src/api/requirements.txt
 ```
 
 5. Update local.settings.json file to integrate OpenAI models with backend app
+Make sure to include the local.settings.json under /src/api/ folder 
+   
 
 ```dotnetcli
-  {  "IsEncrypted": false,  "Values": {   
-     "AzureWebJobsStorage": "UseDevelopmentStorage=true",    
+   {
+     "IsEncrypted": false,
+  "Values": { 
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",    
      "FUNCTIONS_WORKER_RUNTIME": "python",    
      "ImagesConnection": "UseDevelopmentStorage=true",    
      "AzureWebJobsFeatureFlags": "EnableWorkerIndexing",    
-     "AZURE_OPENAI_ENDPOINT": "<Insert openAI endpoint>",
-     "AZURE_OPENAI_KEY": "<Insert openAI key>",    
+     "AZURE_OPENAI_ENDPOINT": "<Insert end point>",
+     "AZURE_OPENAI_KEY": "<Insert the openAI key>",    
      "CHAT_DEPLOYMENT_NAME": "gpt-4o-mini",    
      "EMBEDDINGS_DEPLOYMENT_NAME": "text-embedding-3-small"
-      },  
-      "Host": {    
+},
+ "Host": {    
         "CORS": "*" 
      }
     }
@@ -58,7 +70,6 @@ pip install -r src/api/requirements.txt
 ```dotnetcli
 make runserver
 ```
-
 
 ## Running the web server outside DevContainer
 

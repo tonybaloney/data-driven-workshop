@@ -72,7 +72,6 @@ Make sure to include the local.settings.json under /src/api/ folder
 make runserver
 ```
 
-
 ## Running the web server outside DevContainer
 
 ```console

@@ -133,6 +133,7 @@ def match(req: func.HttpRequest) -> func.HttpResponse:
     """
     image = req.files.get('image_upload')
     max_items = req.form.get('max_items', 2)
+    language = req.form.get('language', 'English')
     if not image:
         return func.HttpResponse(
             "{'error': 'Please pass an image in the request body'}",
@@ -150,8 +151,9 @@ def match(req: func.HttpRequest) -> func.HttpResponse:
         {
             "role": "system",
             "content": 
-            """  
+            f"""  
                 Generate a text description the clothes worn by the person in the image.
+                Write the response in {language}.
             """
         },
         {   
@@ -171,7 +173,7 @@ def match(req: func.HttpRequest) -> func.HttpResponse:
     )
     image_description = description.choices[0].message.content
 
-    embedding_source = req.form.get('embedding_source', 'text')
+    embedding_source = req.form.get('embedding_source', 'image')
 
     if USE_COMPUTER_VISION and embedding_source == 'image':
         image_embedding = fetch_computer_vision_image_embedding(vision_endpoint, vision_api_key, token_provider, image_contents, image_type)
@@ -186,7 +188,7 @@ def match(req: func.HttpRequest) -> func.HttpResponse:
         "results": [product.model_dump() for product in sql_results],
         }))
 
-if USE_COSMOSDB:
+if USE_COSMOSDB and False:
     @app.function_name(name="CosmosDBTrigger")
     @app.cosmos_db_trigger(arg_name="documents", 
                         connection="AZURE_COSMOS_CONNECTION_STRING", 

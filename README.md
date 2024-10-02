@@ -4,12 +4,13 @@
 
 1. Python 3.11(Required)
 2. Github account (Required)
-3. Docker Desktop
+3. [Docker Desktop](https://docs.docker.com/desktop/install/windows-install/)
 4. An editor  – Vscode 
 [Download Visual Studio Code](https://code.visualstudio.com/Download)
 5. DevContainer Extension
 In the Visual Studio Code extensions view search for "Dev Containers" in search box and click on "Install" button
-6. Azure subscription  (Good to have) 
+6. Azure subscription  (Good to have)
+7. [AI chat Playground](https://mango-bush-0a9e12903.5.azurestaticapps.net/event/5c19-01a3)
 
 ## Running the App within the DevContainer
 1. Clone the project

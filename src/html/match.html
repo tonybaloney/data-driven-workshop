@@ -25,7 +25,7 @@
             class="h-10 w-10 mr-2"
           />
           <a href="#" class="text-white text-2xl font-bold"
-            >Pythonic Patterns</a
+            >蛇や</a
           >
         </div>
 
@@ -71,10 +71,14 @@
           Search
         </button>
 
-        <!-- A drop down to choose whether to use Computer Vision embedding models or text description models -->
         <select id="embedding_source" name="embedding_source" class="w-2/6 p-2 border border-gray-300 rounded-l h-12">
           <option value="image" selected>Image Embedding (Computer Vision)</option>
           <option value="text">Text Description (GPT-4o)</option>
+        </select>
+
+        <select id="language" name="language" class="w-2/6 p-2 border border-gray-300 rounded-l h-12">
+          <option value="English" selected>English</option>
+          <option value="Japanese">日本語</option>
         </select>
 
       </form>

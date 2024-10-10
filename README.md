@@ -15,7 +15,7 @@ In the Visual Studio Code extensions view search for "Dev Containers" in search 
 ## Running the App within the DevContainer
 1. Clone the project
 ```dotnetcli
-git clone https://github.com/raorugan/data-driven-AI-workshop.git
+git clone https://github.com/tonybaloney/data-driven-workshop.git
 
 ```
 2. Start the Dev container
